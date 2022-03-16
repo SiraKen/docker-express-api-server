@@ -8,6 +8,6 @@ RUN yarn install
 
 COPY . .
 
-EXPOSE 7041
+EXPOSE 8080
 
 CMD yarn build && yarn serve

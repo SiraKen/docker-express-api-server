@@ -1,0 +1,15 @@
+#!/bin/bash
+
+case $1 in
+# Build Docker image
+"build")
+  docker build -t siraken/express .
+;;
+# Deploy to GCP Cloud Run *example
+"deploy")
+  gcloud builds submit --tag gcr.io/{project_id}/{image}
+;;
+*)
+  echo Unexpected command.
+;;
+esac

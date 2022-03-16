@@ -1,15 +1,21 @@
 import express from "express";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app: express.Express = express();
-const PORT = 8080;
+
+const PORT = process.env.APP_PORT || 8080;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.disable("x-powered-by");
 
 app.use(
   (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "*");
-    res.header("Access-Control-Allow-Headers", "*");
+    // res.header("Access-Control-Allow-Origin", "*");
+    // res.header("Access-Control-Allow-Methods", "*");
+    // res.header("Access-Control-Allow-Headers", "*");
     next();
   }
 );
